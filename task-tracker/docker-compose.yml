@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: task-tracker-postgres
+    environment:
+      POSTGRES_DB: task_tracker
+      POSTGRES_USER: task_tracker
+      POSTGRES_PASSWORD: task_tracker_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
